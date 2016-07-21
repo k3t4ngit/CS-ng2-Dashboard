@@ -1,13 +1,26 @@
 (function(app) {
-    app.AppComponent =
-        ng.core.Component({
-            selector: 'my-app',
-            template: '<h1>My {{which}} Angular 2 App</h1><input [(ngModel)]="which" placeholde="Number">',
-            directives:[ ]
-        })
-        .Class({
-            constructor:function() {
-                this.which='first';
-            }
-        });
+    //make some aliases
+    var ngComp=ng.core.Component;
+
+    app.loginComponent=ngComp({
+        selector:"app-login",
+        template:'<div class="well"><p class="lead">Login Here</p><form class="form form-horizontal"><input class="input input-lg" [(ngModel)]="username" placeholder="Username"><br><br><input class="input input-lg" [(ngModel)]="password" placeholder="Password"></form></div>'
+    }).Class({
+        constructor:function loginComponent(){
+            this.username='';
+            this.password='';
+        }
+    });
+
+
+    app.AppComponent=ngComp({
+        selector: 'my-app',
+        template: '<h1>Angular 2(ES5) - Case Study</h1><app-login></app-login>',
+        directives:[app.loginComponent],
+        providers:[]
+    }).Class({
+        constructor:function() {
+
+        }
+    });
 })(window.app || (window.app = {}));
