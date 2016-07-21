@@ -4,11 +4,14 @@
 
     app.loginComponent=ngComp({
         selector:"app-login",
-        template:'<div class="well"><p class="lead">Login Here</p><form class="form form-horizontal"><input class="input input-lg" [(ngModel)]="username" placeholder="Username"><br><br><input class="input input-lg" [(ngModel)]="password" placeholder="Password"></form></div>'
+        template:'<div class="well"><p class="lead"></p><input class="input input-lg" [(ngModel)]="username" placeholder="Username"><br><br></div>'
     }).Class({
         constructor:function loginComponent(){
             this.username='';
-            this.password='';
+        }
+
+        login(){
+            
         }
     });
 
